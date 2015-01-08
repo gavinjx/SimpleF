@@ -134,7 +134,7 @@ function getParam($key)
 	// this prevents some character re-spacing such as <java\0script>
 	// note that you have to handle splits with \n, \r,
 	// and \t later since they *are* allowed in some inputs
-	$val = preg_replace ( '/([\x00-\x08,\x0b-\x0c,\x0e-\x19])/', '', $val );
+	$val = preg_replace ( '/([\x00-\x08|\x0b-\x0c|\x0e-\x19])/', '', $val );
 	
 	// straight replacements, the user should never need these
 	// since they're normal characters

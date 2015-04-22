@@ -1,32 +1,23 @@
-<?php
-/**
- * 将路由文件index.php放至www目录下，配置rewrite规则如下：
- * location / {
- *           root /Users/gavin/www/local/SimpleF/www;
- *           index index.html index.htm index.php;
- *           if (!-e $request_filename) {
- *               rewrite ^(.*)$ /index.php last;
- *           }
- *       }
- * 保护配置文件安全
- */
+<?php 
 session_start() ;
 header("Content-type: text/html; charset=utf-8") ;
 
 //获取配置文件 
-$systemConfig = require 'config/config.php' ;
+$systemConfig = require '../config/config.php' ;
 
+//设置error_reporting
 error_reporting($systemConfig['error_reporting']) ;
-
-$HOST = $systemConfig['HOST'] ;
-
 
 //设置时区
 date_default_timezone_set ( $systemConfig['timezone'] ) ;
 
 
+
+$HOST = $systemConfig['HOST'] ;
+
 //项目目录设定
-$ROOT_PATH = realpath(__DIR__) ;
+$ROOT_PATH = realpath(__DIR__).'/../' ;
+
 //获取项目名称
 $list = explode('/', $ROOT_PATH) ;//寻找位置
 $listNum = count($list) ;
@@ -76,9 +67,9 @@ $conParam = getParam('c') ;
 $actionParam = getParam('a')?getParam('a'):'index' ;
 // GET All Params Include GET and POST, $GLOBALS
 //demo
-/*setParam('aaaa', "aaa") ;
-$params = getAllParams() ;
-var_dump($params['aaaa']);exit;*/
+// setParam('aaaa', "aaa") ;
+// $params = getAllParams() ;
+// var_dump($params['aaaa']);exit;
 
 //将dir和Controller的首字母转换为大写，方便读取文件
 $ucConParam = ucfirst($conParam) ;

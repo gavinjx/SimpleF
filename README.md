@@ -5,6 +5,7 @@
 #### 配置说明
 
 * 配置Nginx rewrite规则如下：
+
 location / {
 	root /Users/gavin/www/local/SimpleF/www;
 	index index.html index.htm index.php;

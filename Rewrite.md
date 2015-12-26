@@ -1,16 +1,12 @@
-配置Nginx rewrite规则如下：
-location / {
-	root /Users/gavin/www/local/SimpleF/www;
-	index index.html index.htm index.php;
-	if (!-e $request_filename) {
-	   rewrite ^(.*)$ /index.php last;
-	}
-}
+#### 配置说明
 
+* 配置Nginx rewrite规则如下：
 示例：
+
+```nginx
 server {
      listen 80;
-     server_name localhost;
+     server_name gavinjx.com;
      location / {
          root /Users/gavin/www/local/SimpleF/www;
          index index.html index.htm index.php;
@@ -26,3 +22,5 @@ server {
              include fastcgi_params;
      }
  }
+```
+===

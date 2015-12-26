@@ -1,4 +1,7 @@
 <?php
+/**
+ * 参数接收类
+ */
 class SimpleF_Core_Param
 {
 	//参数接收的途径数组

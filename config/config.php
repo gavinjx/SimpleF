@@ -17,6 +17,9 @@ return
 			'config_dir' => 'tmp/config_dir',
 			'cache_dir' => 'tmp/cache_dir'
 		),
+		'url_route_mode' => 2, // 路由模式，
+							   // 1：http://gavinjx.com/?d=front&c=show&a=index模式；2：http://gavinjx.com/front/show/index
+	    // 'default_uri' => 'front/show', //默认首页
 		'upload_pic' => array(
 			'ext' => array('jpg','png', 'jpeg', 'JPG', 'PNG', 'JPEG'), //允许上传的文件类型
 			'dir' => '/home/data/www/SimpleF/uploads/pictures', //上传图片存放路径
@@ -29,5 +32,5 @@ return
 			'fontSize' => 13
 		),
 		'timezone' => 'Asia/Shanghai',
-		'HOST' => 'http://127.0.0.1'
+		'HOST' => 'http://gavinjx.com',
 	) ;

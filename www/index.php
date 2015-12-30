@@ -69,7 +69,16 @@ try{
 		$conParam = getParam('c') ;
 		$actionParam = getParam('a')?getParam('a'):'index' ;
 	}elseif($GLOBALS['systemConfig']['url_route_mode']==2){
-		$uriParams = explode('/', substr(SimpleF_Core_Variable_Register::get('request_uri'), 1) ) ;
+		//切去QUERY_STRING
+		if(strpos(SimpleF_Core_Variable_Register::get('request_uri'), '?')!==false){
+			$offect = strpos(SimpleF_Core_Variable_Register::get('request_uri'), '?') ;
+		}else{
+			$offect = strlen(SimpleF_Core_Variable_Register::get('request_uri')) ;
+		}
+		$uriParams = explode('/', substr(
+				SimpleF_Core_Variable_Register::get('request_uri'), 1, $offect-1 )
+		) ;
+
 		$dirParam = $uriParams[0] ;
 		$conParam = $uriParams[1] ;
 		$actionParam = $uriParams[2]?$uriParams[2]:'index' ;
